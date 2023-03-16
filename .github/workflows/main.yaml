@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Checkout current repository
+      uses: actions/checkout@v2
+
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
@@ -19,6 +23,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.x
+
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
 
     - name: Execute qrz.py script with index.html content
       run: |
