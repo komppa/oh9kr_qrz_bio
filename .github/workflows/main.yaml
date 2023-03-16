@@ -17,7 +17,7 @@ jobs:
     - name: Checkout QRZ_bio_uploader repository
       uses: actions/checkout@v2
       with:
-        repository: komppa/QRZ_bio_uploader.git
+        repository: komppa/QRZ_bio_uploader
         path: QRZ_bio_uploader
 
     - name: Set up Python 3
@@ -25,13 +25,13 @@ jobs:
       with:
         python-version: 3.x
 
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
 
     - name: Execute qrz.py script with index.html content
       run: |
