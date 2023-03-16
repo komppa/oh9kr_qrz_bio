@@ -35,5 +35,4 @@ jobs:
 
     - name: Execute qrz.py script with index.html content
       run: |
-        content=$(cat index.html)
-        python3 QRZ_bio_uploader/qrz.py ${{ secrets.callsign }} ${{ secrets.password }} '"$content"'
+        python3 QRZ_bio_uploader/qrz.py ${{ secrets.callsign }} ${{ secrets.password }} "$(cat index.html)"
